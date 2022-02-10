@@ -20,6 +20,22 @@ class HomePage extends StatelessWidget {
       drawer: Drawer(
         child: ListView(
           padding: const EdgeInsets.all(0),
+          children:[
+            DrawerHeader(
+              child: Text('Hi, I am a Drawer'),
+              decoration: BoxDecoration(color: Colors.green),
+            ),
+            ListTile(
+                leading: Icon(Icons.person),
+                title: Text('Bhuian'),
+                subtitle: Text('Developer'),
+                trailing: Icon(Icons.edit)),
+            ListTile(
+                leading: Icon(Icons.email),
+                title: Text('E-mail'),
+                subtitle: Text('bhuian@gmail.com'),
+                trailing: Icon(Icons.edit)),
+          ],
         ),
       ),
       body: Center(
