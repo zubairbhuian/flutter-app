@@ -4,7 +4,7 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: const HomePage(),
-    theme: ThemeData(primarySwatch: Colors.purple),
+    theme: ThemeData(primarySwatch: Colors.green),
   ));
 }
 
@@ -17,34 +17,39 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Awesome App"),
       ),
-      body: Container(
-        color: Colors.blue,
-        height: 500,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              padding: const EdgeInsets.all(8),
-              color: Colors.red,
-              width: 100,
-              height: 100,
+      drawer: Drawer(
+        child: ListView(
+          padding: const EdgeInsets.all(0),
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('Hi, I am a Drawer'),
+              decoration: BoxDecoration(color: Colors.green),
             ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              color: Colors.yellow,
-              width: 100,
-              height: 100,
-            ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              color: Colors.green,
-              width: 100,
-              height: 100,
-            )
+            ListTile(
+                leading: Icon(Icons.person),
+                title: Text('Bhuian'),
+                subtitle: Text('Developer'),
+                trailing: Icon(Icons.edit)),
+            ListTile(
+                leading: Icon(Icons.email),
+                title: Text('E-mail'),
+                subtitle: Text('bhuian@gmail.com'),
+                trailing: Icon(Icons.edit)),
           ],
         ),
       ),
+      body: Center(
+        child: Container(
+          color: Colors.green,
+          height: 100,
+          width: 100,
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.edit),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
