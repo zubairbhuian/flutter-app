@@ -8,9 +8,16 @@ void main() {
   ));
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var myText = "Chenge My Name";
+  TextEditingController _nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,14 +28,13 @@ class HomePage extends StatelessWidget {
       drawer: Drawer(
         child: ListView(
           padding: const EdgeInsets.all(0),
-          children:[
+          children: [
             const UserAccountsDrawerHeader(
-              accountName: Text('Zubair'),
-               accountEmail: Text('bhuian@gmail.com'),
-               currentAccountPicture:CircleAvatar(
-                 backgroundImage: NetworkImage("https://scontent.fdac80-1.fna.fbcdn.net/v/t1.6435-9/123042841_945908579151890_6246602248743437967_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeE_H0d-mH39OysN5a0qVKJzONjtsS8E12I42O2xLwTXYuSdhNRxWIyj59WjUrCCHZGS3F2ibpUTzwGM7PXONha2&_nc_ohc=wlDNajBViV4AX9hkHAJ&tn=awbMQwkPTCWm_hVB&_nc_ht=scontent.fdac80-1.fna&oh=00_AT9-DcYPAUolZ_mU1O1dSHiE4PIHNRhjE0rLNo2tOwbNaw&oe=622ADFEB")
-                 )
-              ),
+                accountName: Text('Zubair'),
+                accountEmail: Text('bhuian@gmail.com'),
+                currentAccountPicture: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://scontent.fdac80-1.fna.fbcdn.net/v/t1.6435-9/123042841_945908579151890_6246602248743437967_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeE_H0d-mH39OysN5a0qVKJzONjtsS8E12I42O2xLwTXYuSdhNRxWIyj59WjUrCCHZGS3F2ibpUTzwGM7PXONha2&_nc_ohc=wlDNajBViV4AX9hkHAJ&tn=awbMQwkPTCWm_hVB&_nc_ht=scontent.fdac80-1.fna&oh=00_AT9-DcYPAUolZ_mU1O1dSHiE4PIHNRhjE0rLNo2tOwbNaw&oe=622ADFEB"))),
             ListTile(
                 leading: const Icon(Icons.person),
                 title: const Text('Bhuian'),
@@ -36,12 +42,12 @@ class HomePage extends StatelessWidget {
                 trailing: const Icon(Icons.edit),
                 onTap: () {}),
             ListTile(
-                leading: const Icon(Icons.email),
-                title: const Text('E-mail'),
-                subtitle: const Text('bhuian@gmail.com'),
-                trailing: const Icon(Icons.edit),
-                onTap: () {},
-                ),
+              leading: const Icon(Icons.email),
+              title: const Text('E-mail'),
+              subtitle: const Text('bhuian@gmail.com'),
+              trailing: const Icon(Icons.edit),
+              onTap: () {},
+            ),
           ],
         ),
       ),
@@ -50,36 +56,40 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: SingleChildScrollView(
             child: Card(
-              child: Column(
-                children: [
+              child: Column(children: [
                 Image.asset(
                   "assets/one.jpg",
-                  ),
+                ),
                 const SizedBox(
                   height: 20,
                 ),
-                const Text(
-                  "Change my name",
-                  style:TextStyle(fontSize: 25,fontWeight:FontWeight.bold),
-          
+                Text(
+                  myText,
+                  style: const TextStyle(
+                      fontSize: 25, fontWeight: FontWeight.bold),
                 ),
-                const Padding(
-                  padding:EdgeInsets.all(16),
-                  child:  TextField(
-                    decoration: InputDecoration(
-                      border:OutlineInputBorder(),
-                      hintText: "Enter Some Text",labelText: "Name"),
-                  )
-                )
+                Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: TextField(
+                      controller: _nameController,
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "Enter Some Text",
+                          labelText: "Name"),
+                    ))
               ]),
-          
             ),
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.edit),
+        onPressed: () {
+          myText = _nameController.text;
+          setState(() {
+            
+          });
+        },
+        child: const Icon(Icons.send),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
