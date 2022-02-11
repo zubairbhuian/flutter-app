@@ -4,7 +4,7 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: const HomePage(),
-    theme: ThemeData(primarySwatch: Colors.blue),
+    theme: ThemeData(primarySwatch: Colors.pink),
   ));
 }
 
@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue[500],
       appBar: AppBar(
         title: const Text("Awesome App"),
       ),
@@ -21,7 +22,7 @@ class HomePage extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.all(0),
           children:[
-            UserAccountsDrawerHeader(
+            const UserAccountsDrawerHeader(
               accountName: Text('Zubair'),
                accountEmail: Text('bhuian@gmail.com'),
                currentAccountPicture:CircleAvatar(
@@ -29,26 +30,33 @@ class HomePage extends StatelessWidget {
                  )
               ),
             ListTile(
-                leading: Icon(Icons.person),
-                title: Text('Bhuian'),
-                subtitle: Text('Developer'),
-                trailing: Icon(Icons.edit),
+                leading: const Icon(Icons.person),
+                title: const Text('Bhuian'),
+                subtitle: const Text('Developer'),
+                trailing: const Icon(Icons.edit),
                 onTap: () {}),
             ListTile(
-                leading: Icon(Icons.email),
-                title: Text('E-mail'),
-                subtitle: Text('bhuian@gmail.com'),
-                trailing: Icon(Icons.edit),
+                leading: const Icon(Icons.email),
+                title: const Text('E-mail'),
+                subtitle: const Text('bhuian@gmail.com'),
+                trailing: const Icon(Icons.edit),
                 onTap: () {},
                 ),
           ],
         ),
       ),
       body: Center(
-        child: Container(
-          color: Colors.blue[400],
-          height: 100,
-          width: 100,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Card(
+            child: Column(
+              children: [
+              Image.asset(
+                "assets/one.jpg",
+                ),
+            ]),
+
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
