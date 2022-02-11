@@ -4,7 +4,7 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: const HomePage(),
-    theme: ThemeData(primarySwatch: Colors.green),
+    theme: ThemeData(primarySwatch: Colors.blue),
   ));
 }
 
@@ -32,18 +32,21 @@ class HomePage extends StatelessWidget {
                 leading: Icon(Icons.person),
                 title: Text('Bhuian'),
                 subtitle: Text('Developer'),
-                trailing: Icon(Icons.edit)),
+                trailing: Icon(Icons.edit),
+                onTap: () {}),
             ListTile(
                 leading: Icon(Icons.email),
                 title: Text('E-mail'),
                 subtitle: Text('bhuian@gmail.com'),
-                trailing: Icon(Icons.edit)),
+                trailing: Icon(Icons.edit),
+                onTap: () {},
+                ),
           ],
         ),
       ),
       body: Center(
         child: Container(
-          color: Colors.green,
+          color: Colors.blue[400],
           height: 100,
           width: 100,
         ),
