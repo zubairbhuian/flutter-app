@@ -4,7 +4,7 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: const HomePage(),
-    theme: ThemeData(primarySwatch: Colors.pink),
+    theme: ThemeData(primarySwatch: Colors.blue),
   ));
 }
 
@@ -48,14 +48,32 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Card(
-            child: Column(
-              children: [
-              Image.asset(
-                "assets/one.jpg",
+          child: SingleChildScrollView(
+            child: Card(
+              child: Column(
+                children: [
+                Image.asset(
+                  "assets/one.jpg",
+                  ),
+                const SizedBox(
+                  height: 20,
                 ),
-            ]),
-
+                const Text(
+                  "Change my name",
+                  style:TextStyle(fontSize: 25,fontWeight:FontWeight.bold),
+          
+                ),
+                const Padding(
+                  padding:EdgeInsets.all(16),
+                  child:  TextField(
+                    decoration: InputDecoration(
+                      border:OutlineInputBorder(),
+                      hintText: "Enter Some Text",labelText: "Name"),
+                  )
+                )
+              ]),
+          
+            ),
           ),
         ),
       ),
