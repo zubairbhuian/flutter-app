@@ -1,0 +1,12 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "default",
+      "project": "windows\\CMakeLists.txt",
+      "projectTarget": "flutter_application_1.exe (runner\\flutter_application_1.exe)",
+      "name": "flutter_application_1.exe (runner\\flutter_application_1.exe)"
+    }
+  ]
+}
