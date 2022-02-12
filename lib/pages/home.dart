@@ -10,8 +10,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var myText = "Chenge My Name";
-  final TextEditingController _nameController = TextEditingController();
+  // var myText = "Chenge My Name";
+  // final TextEditingController _nameController = TextEditingController();
+
+  var url = "https://jsonplaceholder.typicode.com/photos";
+  var data;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,22 +23,14 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Awesome App"),
       ),
-      drawer:const MyDrawer(),
+      drawer: const MyDrawer(),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
-            child: NameCardWidget(myText: myText, nameController: _nameController),
-          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          myText = _nameController.text;
-          setState(() {
-            
-            
-          });
         },
         child: const Icon(Icons.send),
       ),
@@ -42,4 +38,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
